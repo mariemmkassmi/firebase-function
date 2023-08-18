@@ -16,7 +16,7 @@ le pipe drive api key (se trouve) dans Tools & integration )
 
 les nomes de channel que vous avez 
 
-les types deal que vous souhaitez l'afficher 
+les nomes de pipeline que vous souhaitez l'afficher 
 
 Pour installer le Firebase , il suffit de faire simplement un :
 npm install -g firebase-tools
