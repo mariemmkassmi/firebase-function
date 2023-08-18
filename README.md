@@ -1,13 +1,13 @@
-# firebase-function
+# Firebase-function
 
-Environnement local 
+# Environnement local 
 Cloner le projet sur votre machine :
 git clone https://github.com/mariemmkassmi/firebase-function
 
 Se déplacer dans le projet et installer les dépendances :
 cd slack && npm install
 
-Configuration 
+# Configuration 
 -il faut changer dans le fichier index.js (à adapter selon votre besoins):
 
 le slack api de slack bot token (se trouve dans Oauth &Permissions) 
