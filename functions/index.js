@@ -1,7 +1,9 @@
 const functions = require('firebase-functions');
 const { logger } = require("firebase-functions");
 const axios = require('axios');
-const slackApiKey = "xoxb-5683988392193-5758966778261-xvPI8rTow0fl76r1QVxYvX9V";
+
+const SLACK_API_KEY = "xoxb-5683988392193-5758966778261-xvPI8rTow0fl76r1QVxYvX9V";
+const PIPEDRIVE_API_TOKEN = "07865ff46dea373140f8eb6da111be066e87cf59";
 
 exports.send = functions.https.onRequest(async (request, response) => {
     try {
@@ -9,7 +11,7 @@ exports.send = functions.https.onRequest(async (request, response) => {
         const { channel,message} = request.body;
           const pipelineResponse = await axios.get(`https://api.pipedrive.com/v1/pipelines/${pipeline_id}`, {
             params: {
-                api_token: '07865ff46dea373140f8eb6da111be066e87cf59' 
+                api_token: PIPEDRIVE_API_TOKEN
             }
         });
         const axiosResponse = await axios.post('https://slack.com/api/chat.postMessage', {
@@ -20,11 +22,11 @@ exports.send = functions.https.onRequest(async (request, response) => {
             Owner: ${owner_name}
             Person Contact : ${person_name}
             Value: ${formatted_value}`
-            
+
         }, {
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + slackApiKey,
+                'Authorization': 'Bearer ' + SLACK_API_KEY,
             }
         });
 
